@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+// @ts-ignore
 import Confetti from "react-confetti";
 import "./App.css";
 
@@ -15,6 +16,9 @@ function App() {
   const [confirmado, setConfirmado] = useState(false);
 
   useEffect(() => {
+    // Sempre reset ao carregar (modo teste)
+    setConfirmado(false);
+
     const interval = setInterval(() => {
       const agora = new Date().getTime();
       const distancia = dataFesta - agora;
