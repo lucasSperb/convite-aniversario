@@ -6,6 +6,9 @@ import "./App.css";
 function App() {
   const dataFesta = new Date("2026-03-25T19:00:00").getTime();
 
+  const telefone = "555184584889"; // sem + e sem espaços
+  const endereco = "Salão de Festas Estrela, Porto Alegre, RS";
+
   const [tempo, setTempo] = useState({
     dias: 0,
     horas: 0,
@@ -13,12 +16,7 @@ function App() {
     segundos: 0,
   });
 
-  const [confirmado, setConfirmado] = useState(false);
-
   useEffect(() => {
-    // Sempre reset ao carregar (modo teste)
-    setConfirmado(false);
-
     const interval = setInterval(() => {
       const agora = new Date().getTime();
       const distancia = dataFesta - agora;
@@ -42,10 +40,27 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  const confirmarPresenca = () => {
+    const mensagem = encodeURIComponent(
+      "Olá! Confirmo minha presença no aniversário 🎉"
+    );
+
+    window.open(
+      `https://wa.me/${telefone}?text=${mensagem}`,
+      "_blank"
+    );
+  };
+
+  const abrirMapa = () => {
+    const query = encodeURIComponent(endereco);
+    window.open(
+      `https://www.google.com/maps/search/?api=1&query=${query}`,
+      "_blank"
+    );
+  };
+
   return (
     <div className="app">
-      {confirmado && <Confetti />}
-
       <div className="card">
         <h1>🎉 Você está convidado!</h1>
         <h2>Aniversário do Lucas 🎂</h2>
@@ -70,15 +85,14 @@ function App() {
         </div>
 
         <p className="info">📅 25 de Março • 19h</p>
-        <p className="info">📍 Salão de Festas Estrela</p>
 
-        {!confirmado ? (
-          <button onClick={() => setConfirmado(true)}>
-            Confirmar Presença
-          </button>
-        ) : (
-          <p className="confirmado">Presença Confirmada 🎉</p>
-        )}
+        <p className="info endereco" onClick={abrirMapa}>
+          📍 {endereco}
+        </p>
+
+        <button onClick={confirmarPresenca}>
+          Confirmar Presença
+        </button>
       </div>
     </div>
   );

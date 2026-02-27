@@ -98,3 +98,12 @@ button:hover {
   color: #00ff99;
   font-weight: bold;
 }
+
+.endereco {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.endereco:hover {
+  color: #ff4e50;
+}
