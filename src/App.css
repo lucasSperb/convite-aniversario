@@ -1,3 +1,4 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -5,62 +6,87 @@
   font-family: "Inter", sans-serif;
 }
 
-/* Mobile First */
-body {
-  background: linear-gradient(135deg, #1e1e2f, #111);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+/* CORREÇÃO REAL MOBILE HEIGHT */
+html, body, #root {
+  height: 100%;
 }
 
-/* Centralização */
-.app {
-  width: 100%;
+body {
+  background: #2e1a47;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
 }
+
+/* CONTAINER PRINCIPAL */
+.app {
+  width: 100%;
+  max-width: 430px; /* largura padrão mobile premium */
+  min-height: 100dvh; /* usa dvh ao invés de vh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+/* ================= CAPA ================= */
+
+.capa-container {
+  position: relative;
+  width: 100%;
+}
+
+.capa-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Área clicável */
+.area-clique {
+  position: absolute;
+  bottom: 27%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 18%;
+  cursor: pointer;
+}
+
+/* ================= CONVITE ================= */
 
 .card {
   width: 100%;
-  max-width: 380px;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(15px);
-  border-radius: 24px;
-  padding: 28px 22px;
+  background: linear-gradient(160deg, #3c1f5c, #1f0f30);
+  border-radius: 28px;
+  padding: 32px 20px;
   text-align: center;
   color: white;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
 }
 
 h1 {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-
-h2 {
-  font-size: 16px;
-  color: #ff4e50;
-  margin-bottom: 20px;
+  font-size: 22px;
+  margin-bottom: 24px;
 }
 
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
 .countdown div {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 10px;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 12px 8px;
+  border-radius: 14px;
 }
 
 .countdown span {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   display: block;
 }
@@ -72,31 +98,7 @@ h2 {
 
 .info {
   font-size: 14px;
-  margin: 6px 0;
-}
-
-button {
-  margin-top: 18px;
-  width: 100%;
-  padding: 12px;
-  border-radius: 14px;
-  border: none;
-  background: #ff4e50;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #ff2e33;
-  transform: scale(1.03);
-}
-
-.confirmado {
-  margin-top: 18px;
-  color: #00ff99;
-  font-weight: bold;
+  margin: 8px 0;
 }
 
 .endereco {
@@ -105,5 +107,22 @@ button:hover {
 }
 
 .endereco:hover {
-  color: #ff4e50;
+  color: gold;
+}
+
+button {
+  margin-top: 24px;
+  padding: 14px;
+  border-radius: 16px;
+  border: none;
+  background: gold;
+  color: #2e1a47;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:active {
+  transform: scale(0.97);
 }

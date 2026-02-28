@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 // @ts-ignore
 import Confetti from "react-confetti";
+import { motion, AnimatePresence } from "framer-motion";
+import conviteImg from "./assets/convite.jpg";
 import "./App.css";
 
 function App() {
-  const dataFesta = new Date("2026-03-25T19:00:00").getTime();
+  const [tela, setTela] = useState<"capa" | "convite">("capa");
 
-  const telefone = "555184584889"; // sem + e sem espaços
+  const dataFesta = new Date("2026-03-25T19:00:00").getTime();
+  const telefone = "555184584889";
   const endereco = "Salão de Festas Estrela, Porto Alegre, RS";
 
   const [tempo, setTempo] = useState({
@@ -44,11 +47,7 @@ function App() {
     const mensagem = encodeURIComponent(
       "Olá! Confirmo minha presença no aniversário 🎉"
     );
-
-    window.open(
-      `https://wa.me/${telefone}?text=${mensagem}`,
-      "_blank"
-    );
+    window.open(`https://wa.me/${telefone}?text=${mensagem}`, "_blank");
   };
 
   const abrirMapa = () => {
@@ -61,39 +60,73 @@ function App() {
 
   return (
     <div className="app">
-      <div className="card">
-        <h1>🎉 Você está convidado!</h1>
-        <h2>Aniversário do Lucas 🎂</h2>
+      <AnimatePresence mode="wait">
+        {tela === "capa" && (
+          <motion.div
+            key="capa"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1 }}
+            transition={{ duration: 0.6 }}
+            className="capa-container"
+          >
+            <img
+              src={conviteImg}
+              alt="Convite 15 anos"
+              className="capa-img"
+            />
 
-        <div className="countdown">
-          <div>
-            <span>{tempo.dias}</span>
-            <small>Dias</small>
-          </div>
-          <div>
-            <span>{tempo.horas}</span>
-            <small>Horas</small>
-          </div>
-          <div>
-            <span>{tempo.minutos}</span>
-            <small>Min</small>
-          </div>
-          <div>
-            <span>{tempo.segundos}</span>
-            <small>Seg</small>
-          </div>
-        </div>
+            <div
+              className="area-clique"
+              onClick={() => setTela("convite")}
+            ></div>
+          </motion.div>
+        )}
 
-        <p className="info">📅 25 de Março • 19h</p>
+        {tela === "convite" && (
+          <motion.div
+            key="convite"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -40 }}
+            transition={{ duration: 0.6 }}
+            className="card"
+          >
+            <Confetti />
 
-        <p className="info endereco" onClick={abrirMapa}>
-          📍 {endereco}
-        </p>
+            <h1>Raphaela 15 Anos 👑</h1>
 
-        <button onClick={confirmarPresenca}>
-          Confirmar Presença
-        </button>
-      </div>
+            <div className="countdown">
+              <div>
+                <span>{tempo.dias}</span>
+                <small>Dias</small>
+              </div>
+              <div>
+                <span>{tempo.horas}</span>
+                <small>Horas</small>
+              </div>
+              <div>
+                <span>{tempo.minutos}</span>
+                <small>Min</small>
+              </div>
+              <div>
+                <span>{tempo.segundos}</span>
+                <small>Seg</small>
+              </div>
+            </div>
+
+            <p className="info">📅 25 de Março • 19h</p>
+
+            <p className="info endereco" onClick={abrirMapa}>
+              📍 {endereco}
+            </p>
+
+            <button style={{color: "#fff"}} onClick={confirmarPresenca}>
+              Confirmar Presença
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
