@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 // @ts-ignore
 import Confetti from "react-confetti";
 import { motion, AnimatePresence } from "framer-motion";
-import conviteImg from "./assets/convite.jpg";
+import conviteImg from "./assets/background.png";
 import "./App.css";
 
 function App() {
@@ -79,7 +79,7 @@ function App() {
             <div
               className="area-clique"
               onClick={() => setTela("convite")}
-            ></div>
+            />
           </motion.div>
         )}
 
@@ -92,7 +92,12 @@ function App() {
             transition={{ duration: 0.6 }}
             className="card"
           >
-            <Confetti />
+            <Confetti
+              width={window.innerWidth}
+              height={window.innerHeight}
+              recycle={false}
+              numberOfPieces={250}
+            />
 
             <h1>Raphaela 15 Anos 👑</h1>
 
@@ -115,14 +120,18 @@ function App() {
               </div>
             </div>
 
-            <p className="info">📅 25 de Março • 19h</p>
+            <p className="info">📅 29 de Maio • 21h</p>
 
-            <p className="info endereco" onClick={abrirMapa}>
+            <p className="info">
               📍 {endereco}
             </p>
 
-            <button style={{color: "#fff"}} onClick={confirmarPresenca}>
-              Confirmar Presença
+            <button className="btn-maps" onClick={abrirMapa}>
+              Ver localização
+            </button>
+
+            <button className="btn-confirmar" onClick={confirmarPresenca}>
+              Confirmar presença
             </button>
           </motion.div>
         )}
