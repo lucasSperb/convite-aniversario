@@ -8,9 +8,9 @@ import "./App.css";
 function App() {
   const [tela, setTela] = useState<"capa" | "convite">("capa");
 
-  const dataFesta = new Date("2026-03-25T19:00:00").getTime();
-  const telefone = "555184584889";
-  const endereco = "Salão de Festas Estrela, Porto Alegre, RS";
+  const dataFesta = new Date("2026-05-29T21:00:00").getTime();
+  const telefone = "5551994789241";
+  const endereco = "Pura Folia - Casa de Festas Canoas";
 
   const [tempo, setTempo] = useState({
     dias: 0,
