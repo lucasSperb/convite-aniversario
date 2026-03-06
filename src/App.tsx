@@ -58,6 +58,13 @@ function App() {
     );
   };
 
+  const abrirListaPresentes = () => {
+  window.open(
+    "https://docs.google.com/forms/d/e/1FAIpQLScpQB70oX-PVCZuL8wR7-gAJeObs6mxghmgLH4avecPw2yvzg/viewform",
+    "_blank"
+  );
+};
+
   return (
     <div className="app">
       <AnimatePresence mode="wait">
@@ -132,6 +139,10 @@ function App() {
 
             <button className="btn-confirmar" onClick={confirmarPresenca}>
               Confirmar presença
+            </button>
+
+            <button className="btn-presentes" onClick={abrirListaPresentes}>
+              Lista de Presentes 🎁
             </button>
           </motion.div>
         )}
