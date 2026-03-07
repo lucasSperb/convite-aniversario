@@ -65,11 +65,11 @@ export default function ListaPresentes() {
               }}
             >
 
-              <h2>{presente.nome}</h2>
+              <h2 style={{ color: "#000" }}>{presente.nome}</h2>
 
-              <p>{presente.valor}</p>
+              <p  style={{ color: "#000" }}>{presente.valor}</p>
 
-              <span className="status">
+              <span className="status"  style={{ color: "#000" }}>
 
                 {presente.status === "reservado"
                   ? "Indisponível"
