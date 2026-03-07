@@ -178,6 +178,7 @@ function App() {
             </div>
 
             <p className="info">📅 29 de Maio • 21h</p>
+            <p className="info">📍 Pura Folia - Casa de Festas Canoas</p>
 
             <button
               className="botao"

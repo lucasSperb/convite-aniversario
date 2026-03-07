@@ -12,7 +12,7 @@ export default function ListaPresentes() {
 
   const [presentes, setPresentes] = useState<Presente[]>([]);
 
-  const API = "https://convite-backend.onrender.com/presentes";
+  const API = "https://convite-backend-0whn.onrender.com/presentes";
 
   useEffect(() => {
 
