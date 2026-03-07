@@ -1,0 +1,42 @@
+.grid-presentes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;
+  margin-top:20px;
+}
+
+.presente-card{
+
+  background:white;
+  border-radius:10px;
+  padding:16px;
+  cursor:pointer;
+
+  transition:all .25s;
+
+  text-align:center;
+
+}
+
+.presente-card:hover{
+
+  border:2px solid #2d6cdf;
+  transform:scale(1.03);
+
+}
+
+.presente-card.reservado{
+
+  opacity:.5;
+  cursor:not-allowed;
+
+}
+
+.status{
+
+  display:block;
+  margin-top:10px;
+  font-size:14px;
+  font-weight:bold;
+
+}

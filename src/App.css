@@ -108,6 +108,61 @@ body {
   text-decoration: underline;
 }
 
+.grid-presentes{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:16px;
+margin-top:20px;
+
+}
+
+.presente-card{
+
+background:#fff;
+padding:16px;
+border-radius:12px;
+text-align:center;
+cursor:pointer;
+transition:0.3s;
+border:2px solid transparent;
+
+}
+
+.presente-card:hover{
+
+border:2px solid #1a73e8;
+
+}
+
+.presente-card.reservado{
+
+opacity:0.5;
+pointer-events:none;
+
+}
+
+.presente-card h2{
+
+font-size:16px;
+color:#000;
+
+}
+
+.presente-card p{
+
+color:#000;
+margin:5px 0;
+
+}
+
+.status{
+
+font-size:12px;
+font-weight:bold;
+
+}
+
 /* ================= BOTÃO ================= */
 
 button {
