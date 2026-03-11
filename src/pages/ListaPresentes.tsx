@@ -57,12 +57,6 @@ export default function ListaPresentes({ voltar }: Props){
 
               <h3 className="h3">{presente.nome}</h3>
 
-              <p>
-                Valor aproximado:
-                <br/>
-                {presente.valor}
-              </p>
-
               {presente.nome === "Pix" && (
 
                 <>
