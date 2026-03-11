@@ -18,19 +18,19 @@ body {
 .app {
   min-height: 100vh;
   display: flex;
-  align-items: center;      /* centraliza vertical */
-  justify-content: center;  /* centraliza horizontal */
+  align-items: center;      
+  justify-content: center;  
   padding: 20px;
-  background: #F4F1EA;
+  background:linear-gradient(90deg,#0F2A47,#1c1c1c);
   font-family: "Playfair Display", serif;
 }
 
-/* ================= CAPA ================= */
+
 
 .capa-container {
   position: relative;
   width: 100%;
-  max-width: 380px; /* mobile first */
+  max-width: 380px;
 }
 
 .capa-img {
@@ -46,11 +46,11 @@ body {
   cursor: pointer;
 }
 
-/* ================= CARD ================= */
+
 
 .card {
   width: 100%;
-  max-width: 380px; /* mobile first */
+  max-width: 380px; 
   background: rgba(255, 255, 255, 0.95);
   padding: 30px 20px;
   border-radius: 16px;
@@ -60,15 +60,12 @@ body {
   overflow: hidden;
 }
 
-/* ================= TÍTULO ================= */
 
 .card h1 {
   color: #0F2A47;
   margin-bottom: 25px;
   font-size: 22px;
 }
-
-/* ================= COUNTDOWN ================= */
 
 .countdown {
   display: flex;
@@ -95,8 +92,6 @@ body {
   font-size: 11px;
 }
 
-/* ================= INFOS ================= */
-
 .info {
   margin-bottom: 12px;
   color: #2F5D8C;
@@ -109,61 +104,46 @@ body {
 }
 
 .grid-presentes{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:16px;
-margin-top:20px;
-
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:16px;
+  margin-top:20px;
 }
 
 .presente-card{
-
-background:#fff;
-padding:16px;
-border-radius:12px;
-text-align:center;
-cursor:pointer;
-transition:0.3s;
-border:2px solid transparent;
-
+  background:#fff;
+  padding:16px;
+  border-radius:12px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
+  border:2px solid transparent;
 }
 
 .presente-card:hover{
-
-border:2px solid #1a73e8;
-
+  border:2px solid #1a73e8;
 }
 
 .presente-card.reservado{
-
-opacity:0.5;
-pointer-events:none;
-
+  opacity:0.5;
+  pointer-events:none;
 }
 
 .presente-card h2{
-
-font-size:16px;
-color:#000;
-
+  font-size:16px;
+  color:#000;
 }
 
 .presente-card p{
-
-color:#000;
-margin:5px 0;
-
+  color:#000;
+  margin:5px 0;
 }
 
 .status{
-
-font-size:12px;
-font-weight:bold;
-
+  font-size:12px;
+  font-weight:bold;
 }
 
-/* ================= BOTÃO ================= */
 
 button {
   margin-top: 20px;
@@ -183,12 +163,11 @@ button:hover {
   opacity: 0.9;
 }
 
-/* ================= DESKTOP ================= */
 
 @media (min-width: 768px) {
   .capa-container,
   .card {
-    max-width: 450px; /* aumenta proporcionalmente */
+    max-width: 450px; 
   }
 
   .card h1 {

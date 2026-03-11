@@ -1,3 +1,17 @@
+.lista-presentes-container{
+  min-height:100vh;
+  background:linear-gradient(90deg,#0F2A47,#1c1c1c);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.card{
+  width:100%;
+  max-width:520px;
+}
+
 .grid-presentes{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -6,37 +20,79 @@
 }
 
 .presente-card{
-
+  position:relative;
   background:white;
-  border-radius:10px;
-  padding:16px;
-  cursor:pointer;
-
-  transition:all .25s;
-
+  border-radius:12px;
+  padding:20px;
   text-align:center;
+  transition:all 0.2s ease;
 
+  box-shadow:0px 4px 10px rgba(0,0,0,0.08);
 }
 
 .presente-card:hover{
-
-  border:2px solid #2d6cdf;
-  transform:scale(1.03);
-
+  transform:translateY(-3px);
+  box-shadow:0px 8px 18px rgba(0,0,0,0.15);
 }
 
-.presente-card.reservado{
-
-  opacity:.5;
-  cursor:not-allowed;
-
-}
-
-.status{
-
-  display:block;
-  margin-top:10px;
-  font-size:14px;
+.btn-confirmar{
+  margin-top:20px;
+  width:100%;
+  padding:10px 20px;
+  border:none;
+  border-radius:10px;
+  background:#0F2A47;
+  color:white;
   font-weight:bold;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.btn-confirmar:hover{
+  background:#163a63;
+}
+
+.h3{
+  color:#0F2A47;
+  margin-bottom:12px;
+}
+
+.pix-info{
+  display:block;
+  margin-top:8px;
+  font-size:13px;
+  color:#0F2A47;
+  font-weight:600;
+}
+
+.pix-copiado{
+  display:block;
+  margin-top:6px;
+  font-size:13px;
+  font-weight:bold;
+  color:green;
+
+  animation:fadePix 2s ease;
+}
+
+@keyframes fadePix{
+
+  0%{
+    opacity:0;
+    transform:translateY(5px);
+  }
+
+  20%{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  80%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:0;
+  }
 
 }

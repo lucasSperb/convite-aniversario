@@ -84,7 +84,7 @@ function App() {
   }
 
   if(tela === "presentes"){
-    return <ListaPresentes/>
+    return <ListaPresentes voltar={()=>setTela("convite")}/>
   }
 
   return (
@@ -198,7 +198,7 @@ function App() {
               className="botao"
               onClick={()=>setTela("presentes")}
             >
-              Lista de Presentes
+              Sugestões de Presentes 🎁
             </button>
 
           </motion.div>

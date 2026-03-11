@@ -1,83 +1,84 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./ListaPresentes.css";
 
 interface Presente {
   id: number;
   nome: string;
   valor: string;
-  status: string;
 }
 
-export default function ListaPresentes() {
+interface Props{
+  voltar: () => void;
+}
 
-  const [presentes, setPresentes] = useState<Presente[]>([]);
+export default function ListaPresentes({ voltar }: Props){
 
-  const API = "https://convite-backend-0whn.onrender.com/presentes";
+  const chavePix = "057.378.620.89";
 
-  useEffect(() => {
+  const [pixCopiado,setPixCopiado] = useState(false);
 
-    carregarPresentes();
+  const presentes: Presente[] = [
+    { id:1, nome:"Maquiagem", valor:"R$150" },
+    { id:2, nome:"Livro", valor:"R$80" },
+    { id:3, nome:"Pix", valor:"Qualquer valor" },
+    { id:4, nome:"Pijama tamanho M", valor:"R$120" },
+    { id:5, nome:"Roupa", valor:"R$200" }
+  ];
 
-  }, []);
+  function copiarPix(){
 
-  async function carregarPresentes(){
+    navigator.clipboard.writeText(chavePix);
 
-    const res = await fetch(API);
-    const data = await res.json();
+    setPixCopiado(true);
 
-    setPresentes(data);
-
-  }
-
-  async function selecionarPresente(id:number){
-
-    const res = await fetch(`${API}/${id}`,{
-      method:"PUT"
-    });
-
-    const data = await res.json();
-
-    setPresentes(data);
+    setTimeout(()=>{
+      setPixCopiado(false);
+    },2000);
 
   }
 
-  return (
+  return(
 
-    <div className="app">
+    <div className="lista-presentes-container">
 
       <div className="card">
 
-        <h1>Lista de Presentes 🎁</h1>
+        <h1>Sugestões de Presentes 🎁</h1>
 
         <div className="grid-presentes">
 
-          {presentes.map(presente => (
-
+          {presentes.map((presente)=>(
+            
             <div
               key={presente.id}
-              className={`presente-card ${presente.status}`}
-              onClick={() => {
-
-                if(presente.status !== "reservado" && presente.status !== "pix"){
-                  selecionarPresente(presente.id)
-                }
-
-              }}
+              className="presente-card"
+              onClick={presente.nome === "Pix" ? copiarPix : undefined}
             >
 
-              <h2 style={{ color: "#000" }}>{presente.nome}</h2>
+              <h3 className="h3">{presente.nome}</h3>
 
-              <p  style={{ color: "#000" }}>{presente.valor}</p>
+              <p>
+                Valor aproximado:
+                <br/>
+                {presente.valor}
+              </p>
 
-              <span className="status"  style={{ color: "#000" }}>
+              {presente.nome === "Pix" && (
 
-                {presente.status === "reservado"
-                  ? "Indisponível"
-                  : presente.status === "pix"
-                  ? "Pix"
-                  : "Disponível"}
+                <>
+                  <span className="pix-info">
+                    Clique para copiar a chave Pix
+                  </span>
 
-              </span>
+                  {pixCopiado && (
+                    <span className="pix-copiado">
+                      Pix copiado ✓
+                    </span>
+                  )}
+
+                </>
+
+              )}
 
             </div>
 
@@ -85,10 +86,17 @@ export default function ListaPresentes() {
 
         </div>
 
+        <button
+          className="btn-confirmar"
+          onClick={voltar}
+        >
+          Voltar
+        </button>
+
       </div>
 
     </div>
 
-  );
+  )
 
 }
