@@ -13,7 +13,7 @@ interface Props{
 
 export default function ListaPresentes({ voltar }: Props){
 
-  const chavePix = "057.378.620.89";
+  const chavePix = "057.378.620-89";
 
   const [pixCopiado,setPixCopiado] = useState(false);
 
