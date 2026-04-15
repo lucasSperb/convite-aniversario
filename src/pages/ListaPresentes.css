@@ -75,6 +75,14 @@
   animation:fadePix 2s ease;
 }
 
+.sugestoes{
+  display:block;
+  margin-top:8px;
+  font-size:13px;
+  color:#0F2A47;
+  font-weight:600;
+}
+
 @keyframes fadePix{
 
   0%{

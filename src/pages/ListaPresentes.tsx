@@ -5,6 +5,7 @@ interface Presente {
   id: number;
   nome: string;
   valor: string;
+  sugestoes?: string;
 }
 
 interface Props{
@@ -18,11 +19,11 @@ export default function ListaPresentes({ voltar }: Props){
   const [pixCopiado,setPixCopiado] = useState(false);
 
   const presentes: Presente[] = [
-    { id:1, nome:"Maquiagem", valor:"R$150" },
-    { id:2, nome:"Livro", valor:"R$80" },
+    { id:1, nome:"Maquiagem", sugestoes:"Base numero 2, Lápis de olho, Lápis de boca, Rimel, Blush", valor:"R$150" },
+    { id:2, nome:"Livro", sugestoes:"Lady killer, Reflexões Sobre a Guilhotina, Água viva, Amor Teoricamente, Metamorfose", valor:"R$80" },
     { id:3, nome:"Pix", valor:"Qualquer valor" },
-    { id:4, nome:"Pijama tamanho M", valor:"R$120" },
-    { id:5, nome:"Roupa", valor:"R$200" }
+    { id:4, nome:"Pijama", sugestoes:"Tamanho M", valor:"R$120" },
+    { id:5, nome:"Roupas", sugestoes:"Tamanho M", valor:"R$200" }
   ];
 
   function copiarPix(){
@@ -56,6 +57,7 @@ export default function ListaPresentes({ voltar }: Props){
             >
 
               <h3 className="h3">{presente.nome}</h3>
+              <p className="sugestoes">{presente.sugestoes}</p>
 
               {presente.nome === "Pix" && (
 
